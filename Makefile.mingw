@@ -1,0 +1,28 @@
+CC = gcc
+DEL = del
+EXE = pngb.exe
+SRCDIR = src
+BUILDDIR = build
+OUTDIR = bin
+LODEPNGDIR = lodepng
+INCS = -I"$(SRCDIR)" -I"$(LODEPNGDIR)" 
+OBJS = $(BUILDDIR)/lodepng.o $(BUILDDIR)/pngb.o $(BUILDDIR)/main.o
+CFLAGS = $(INCS)
+LFLAGS = -s
+
+$(EXE):	$(OBJS)
+	$(CC) $(CFLAGS) -Wl,$(LFLAGS) -o $(OUTDIR)/$(EXE) $(OBJS)
+
+$(BUILDDIR)/lodepng.o: $(LODEPNGDIR)/lodepng.c
+	$(CC) $(CFLAGS) -c $(LODEPNGDIR)/lodepng.c -o $(BUILDDIR)/lodepng.o
+
+$(BUILDDIR)/pngb.o: $(SRCDIR)/pngb.c
+	$(CC) $(CFLAGS) -c $(SRCDIR)/pngb.c -o $(BUILDDIR)/pngb.o
+
+$(BUILDDIR)/main.o: $(SRCDIR)/main.c
+	$(CC) $(CFLAGS) -c $(SRCDIR)/main.c -o $(BUILDDIR)/main.o
+
+
+clean:
+	$(DEL) $(BUILDDIR)\*.o
+	$(DEL) $(OUTDIR)\$(EXE)
