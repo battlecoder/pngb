@@ -19,4 +19,4 @@ Currently <b>PNGB</b> can only generate a single palette for the whole image, bu
 </p>
 <br/>
 
-You can see more details and examples in <a href="http://damnsoft.org/software/pngb" target="_blank">http://damnsoft.org/software/pngb</a>
+You can see more details and examples in <a href="http://damnsoft.org/software/pngb" target="_blank">http://damnsoft.org/web/software/pngb</a>
